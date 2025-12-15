@@ -20,15 +20,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import nl.torquelink.shared.models.group.Groups
+import nl.torquelink.shared.models.event.Events
 import org.jetbrains.compose.resources.painterResource
 import torquelink.composeapp.generated.resources.Res
 import torquelink.composeapp.generated.resources.favorite
 import torquelink.composeapp.generated.resources.groups
 
 @Composable
-fun GroupListItem(
-    group: Groups.GroupDto,
+fun EventListItem(
+    event: Events.EventDto,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -43,7 +43,7 @@ fun GroupListItem(
         ) {
             AsyncImage(
                 modifier = Modifier.size(120.dp).background(MaterialTheme.colorScheme.background),
-                model = group.logoUrl,
+                model = event.eventImage,
                 contentScale = ContentScale.FillBounds,
                 contentDescription = ""
             )
@@ -58,47 +58,43 @@ fun GroupListItem(
                     verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.Top),
                     horizontalAlignment = Alignment.Start
                 ) {
-                    Text(
-                        modifier = Modifier.basicMarquee(),
-                        text = group.groupName,
-                        style = MaterialTheme.typography.titleLarge
-                    )
-                    Text(
-                        text = group.description ?: "...",
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ){
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.Start),
-                        verticalAlignment = Alignment.CenterVertically
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Image(
-                            modifier = Modifier.size(24.dp),
-                            painter = painterResource(Res.drawable.groups),
-                            contentDescription = ""
-                        )
                         Text(
-                            text = group.memberCount.toString(),
-                            style = MaterialTheme.typography.bodyMedium
+                            modifier = Modifier.basicMarquee(),
+                            text = event.eventTitle,
+                            style = MaterialTheme.typography.titleLarge
                         )
 
-                        Image(
-                            modifier = Modifier.size(24.dp),
-                            painter = painterResource(Res.drawable.favorite),
-                            contentDescription = ""
-                        )
-                        Text(
-                            text = group.followerCount.toString(),
-                            style = MaterialTheme.typography.bodyMedium
-                        )
+                        Row(
+                            modifier = Modifier.padding(end = 8.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.Start),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                modifier = Modifier.size(24.dp),
+                                painter = painterResource(Res.drawable.groups),
+                                contentDescription = ""
+                            )
+                            Text(
+                                text = event.eventCapacity.toString(),
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
                     }
+
+                    Text(
+                        text = event.eventLocation,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+
+                    Text(
+                        text = "${event.eventDateTime} - ${event.eventStatus}",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
                 }
             }
         }

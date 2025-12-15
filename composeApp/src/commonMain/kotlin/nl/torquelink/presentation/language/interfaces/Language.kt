@@ -2,6 +2,7 @@ package nl.torquelink.presentation.language.interfaces
 
 import nl.torquelink.presentation.language.enums.Languages
 import nl.torquelink.presentation.language.interfaces.sub.Generic
+import nl.torquelink.presentation.language.interfaces.sub.GroupDetails
 import nl.torquelink.presentation.language.interfaces.sub.Login
 import nl.torquelink.presentation.language.interfaces.sub.Profile
 import nl.torquelink.presentation.language.interfaces.sub.Register
@@ -14,4 +15,5 @@ interface Language {
     val register: Register
     val resetPassword: ResetPassword
     val profile: Profile
+    val groupDetails: GroupDetails
 }
