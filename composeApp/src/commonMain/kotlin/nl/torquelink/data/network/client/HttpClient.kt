@@ -33,7 +33,7 @@ val httpClient = HttpClient {
 
     defaultRequest {
 //        url("http://torquelink.nl")
-        url("http://dev.torquelink.nl")
+        url("https://dev.torquelink.nl")
         accept(ContentType.Application.Json)
         contentType(ContentType.Application.Json)
     }

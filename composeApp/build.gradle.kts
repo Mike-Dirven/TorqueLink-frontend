@@ -151,6 +151,9 @@ kotlin {
 
 configurations.all {
     exclude("jakarta.validation", "jakarta.validation-api")
+
+    // Add this line to fix the duplicate class error
+    exclude(group = "commons-logging", module = "commons-logging")
 }
 
 android {

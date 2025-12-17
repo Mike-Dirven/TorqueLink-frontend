@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "191410038334",
+    "project_id": "torque-link",
+    "storage_bucket": "torque-link.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191410038334:android:f8d385bcef20458a27936f",
+        "android_client_info": {
+          "package_name": "nl.torquelink"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClJGvnfLfl3Wosh9dDvlsBfYHHJG2VwXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-2042983441463835~9529664791"
+    }
+  ],
+  "configuration_version": "1"
+}
